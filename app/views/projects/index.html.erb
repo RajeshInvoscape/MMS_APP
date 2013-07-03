@@ -1,0 +1,9 @@
+<h1> Welcome to Media Management System</h1>
+<%= link_to "Create New Project", new_project_path %>
+<h4> Project lists </h1>
+<ol>
+<% @projects.each do |f| %>
+  <li><%= link_to f.projectname %></li><br>
+  <hr>
+<% end %>
+</ol>

@@ -1,0 +1,12 @@
+<div id = "create_project" >
+  <div class="row">
+   <div class="span6 offset3">
+    <%= form_for @project do |f| %>
+     <%= render 'shared/error', object: f.object%>
+      <div><%= f.label :projectname %><br />
+      <%= f.text_field :projectname, :autofocus => true %></div>
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+     <% end %>
+    </div>
+   </div>
+</div>
