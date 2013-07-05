@@ -1,9 +1,19 @@
-<h1> Welcome to Media Management System</h1>
-<%= link_to "Create New Project", new_project_path %>
-<h4> Project lists </h1>
-<ol>
-<% @projects.each do |f| %>
-  <li><%= link_to f.projectname %></li><br>
-  <hr>
-<% end %>
-</ol>
+<h1>  Media Management System</h1>
+<%= link_to "Create New Project", '#',:id => "new_project"%> | 
+<%= link_to "Create New Artist", '#', :id => "new_artist"%>
+
+<div id = "create_project" >
+  <div class="row">
+   <div class="span6 offset3">
+    <%= form_for @project, url: projects_path do |f| %>
+      <%= render 'shared/error', object: f.object %>
+      <div><%= f.label :project_Name %><br />
+      <%= f.text_field :projectname, :autofocus => true %></div>
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+     <% end %>
+    </div>
+   </div>
+</div>
+
+<%= render 'shared/list' %>
+

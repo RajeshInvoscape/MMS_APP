@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 section {
@@ -34,7 +34,7 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
-
+/* header */
 #logo {
   float: left;
   margin-right: 10px;
@@ -48,25 +48,25 @@ textarea {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 3;
+  line-height: 2;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.7em;
+  font-size: 1.2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
   font-weight: normal;
   color: #999;
@@ -130,4 +130,10 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+.navbar {
+  .navbar-inner {
+    background-color: #5c3c46;
+    background-image: none;
+  }
 }

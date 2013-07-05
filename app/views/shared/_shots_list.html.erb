@@ -1,0 +1,6 @@
+<h3> Shots List </h3>
+<ul>
+<% @shots.each do |shot| %>
+  <div class = "shot_box"><%= link_to shot.number %> </div>
+<% end %>
+</ul>

@@ -1,0 +1,22 @@
+<h1> Media Management System</h1>
+<h3><%= @project.projectname %></h3>
+
+<%= link_to "Create Sequence", '#',:id => "new_sequence" %>
+
+<div id = "create_sequence" >
+  <div class="row">
+   <div class="span6 offset3">
+    <%= form_for [@project, @sequence], url: project_sequences_path(@project) do |f| %>
+
+      <%= render 'shared/error', object: f.object %>
+
+      <%= f.hidden_field  :project_id, :value => @project.id %>
+      <div><%= f.label :sequence_name %><br />
+      <%= f.text_field :name, :autofocus => true %></div>
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+     <% end %>
+    </div>
+   </div>
+</div>
+
+<%= render 'shared/sequence_list' %>

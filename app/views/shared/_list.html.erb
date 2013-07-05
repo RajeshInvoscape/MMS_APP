@@ -1,0 +1,8 @@
+
+<h4> Project lists </h1>
+<ol>
+<% @projects.each do |project| %>
+  <li><%= link_to project.projectname , project_path(project) %></li><br>
+  <hr>
+<% end %>
+</ol>

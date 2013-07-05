@@ -1,0 +1,16 @@
+// Place all the styles related to the sequences controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.sequence_box{
+	 width:100px;
+	 height: 50px;
+     padding:3px;
+     border:1px solid gray;
+     margin:5px;
+     border-radius: 10px;
+     position: relative;
+     left: 20px;
+     display: inline-block; 
+     background-color: #f2f2f2;
+     text-align: center;
+}

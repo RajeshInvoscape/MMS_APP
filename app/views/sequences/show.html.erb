@@ -1,0 +1,32 @@
+<h1>  Media Management System</h1>
+<%= link_to "Create Shot", '#',:id => "new_shot" %>
+
+<div id = "create_shot" >
+  <div class="row">
+   <div class="span6 offset3">
+    <%= form_for [@sequence, @shot], url: sequence_shots_path(@sequence), method: :post do |f| %>
+
+      <%= render 'shared/error', object: f.object %>
+
+      <%= f.hidden_field  :sequence_id, :value => @sequence.id %>
+
+      <div><%= f.label :Shot_Number %><br />
+      <%= f.text_field :number, :autofocus => true %></div>
+
+      <div><%= f.label :duration %><br />
+      <%= f.text_field :duration %></div>
+
+      <div><%= f.label :work_description %><br />
+      <%= f.text_area :description, placeholder:"Work Description.......", :size => "30x10"%></div>
+
+      <div><%= f.label :delivery_date %><br />
+      <%= f.text_field :deliverydate %></div>
+
+
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+     <% end %>
+    </div>
+   </div>
+</div>
+
+<%= render 'shared/shots_list' %>
