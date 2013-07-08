@@ -1,4 +1,7 @@
 <h1>  Media Management System</h1>
+<h4><%= @sequence.project.projectname %> |
+<%= @sequence.name %></h4>
+<br />
 <%= link_to "Create Shot", '#',:id => "new_shot" %>
 
 <div id = "create_shot" >
@@ -28,5 +31,5 @@
     </div>
    </div>
 </div>
-
-<%= render 'shared/shots_list' %>
+<h4> Shot List </h4>
+<%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>

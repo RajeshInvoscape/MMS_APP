@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   		redirect_to '/projects'
   	else
       @projects = Project.all
+      @user =User.new
   		render 'index'
   	end
   end
@@ -17,9 +18,8 @@ class ProjectsController < ApplicationController
   end
   def show 
     @sequence = Sequence.new
-    @sequences = Sequence.all
+    @sequences = Sequence.where(:project_id => @project.id)
   end
-
   private
 
   def find_project_from_params

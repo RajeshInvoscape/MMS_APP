@@ -7,11 +7,8 @@ class ShotsController < ApplicationController
 			flash[:success] = "Successfully created shots!"
 			redirect_to sequence_url(@sequence)
 		else
-		   @shots = Shot.all
+		   @shots = Shot.where(:sequence_id => @sequence.id)
 		   render "sequences/show"
 		end
-	end
-	def index
-
 	end
 end

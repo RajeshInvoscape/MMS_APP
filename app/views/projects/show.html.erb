@@ -13,10 +13,11 @@
       <%= f.hidden_field  :project_id, :value => @project.id %>
       <div><%= f.label :sequence_name %><br />
       <%= f.text_field :name, :autofocus => true %></div>
+
       <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
      <% end %>
     </div>
    </div>
 </div>
-
-<%= render 'shared/sequence_list' %>
+<h4> Sequence lists </h1>
+<%= render partial: 'shared/sequence_list', collection: @sequences ,as: :sequence%>

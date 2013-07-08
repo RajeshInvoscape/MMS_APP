@@ -11,19 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705090215) do
+ActiveRecord::Schema.define(:version => 20130708092515) do
 
-  create_table "artists", :force => true do |t|
-    t.string   "artistname"
-    t.string   "expertise"
-    t.string   "artistemail"
-    t.integer  "mobileno"
+  create_table "projects", :force => true do |t|
+    t.string   "projectname"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "projects", :force => true do |t|
-    t.string   "projectname"
+  create_table "sequence_users", :force => true do |t|
+    t.integer  "sequence_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -49,8 +47,11 @@ ActiveRecord::Schema.define(:version => 20130705090215) do
     t.string   "username"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "admin",        :default => true
+    t.string   "expertise"
+    t.decimal  "mobilenumber"
   end
 
 end

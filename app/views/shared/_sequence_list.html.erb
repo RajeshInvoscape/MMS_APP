@@ -1,6 +1,6 @@
-<h4> Sequence lists </h1>
+
 <ul>
-<% @sequences.each do |sequence| %>
-  <div class = "sequence_box"><%= link_to sequence.name , sequence_path(sequence)%></div>
-<% end %>
+  <% if sequence.new_record? != true %>
+  <div class = "sequence_box"><%= link_to sequence.name , sequence_path(sequence) %></div>
+  <% end %>
 </ul>

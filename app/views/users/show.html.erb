@@ -1,0 +1,10 @@
+<h5> Artist Types </h5>
+         
+      <div><%= f.label :Roto %><br />
+      <%= f.select( User.roto_users.collect { |user| user.username },:include_blank => true) %></div>
+
+       <div><%= f.label :Paint %><br />
+      <%= f.select :name, :include_blank => true %></div>
+
+       <div><%= f.label :Comp %><br />
+      <%= f.select :name ,:include_blank => true %></div>

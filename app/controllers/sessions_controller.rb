@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
 	if user
       # Sign the user in and redirect to the user's show page.
       sign_in user
-     redirect_to '/projects'
+      if user.admin?
+        redirect_to projects_url
+      else
+     	redirect_to user_url(user)
+      end
     else
       flash.now[:error] = 'Invalid email/password combination' # Not quite right!
       render 'new'

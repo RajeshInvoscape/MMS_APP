@@ -3,7 +3,6 @@ MMS::Application.routes.draw do
   # first created -> highest priority.
   root to: 'static_pages#home'
   resources :users
-  resources :artists
   resources :projects, shallow: true do
     resources :sequences, shallow: true do
       resources :shots
