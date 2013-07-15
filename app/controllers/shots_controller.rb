@@ -4,6 +4,8 @@ class ShotsController < ApplicationController
 		@shot = Shot.create!(params[:shot])
 		@shot.roto_users.push(push_roto_users(params[:roto_users])) if params[:roto_users]
 		@shot.paint_users.push(push_paint_users(params[:paint_users])) if params[:paint_users]
+		@shot.comp_users.push(User.find(params[:comp_users])) if  params[:comp_users]
+
 		if @shot.save
 			flash[:success] = "Successfully created shots!"
 			redirect_to sequence_url(@sequence)
@@ -11,6 +13,7 @@ class ShotsController < ApplicationController
 		   @shots = Shot.where(:sequence_id => @sequence.id)
 		   render "sequences/show"
 		end
+
 	end
 
 	private
@@ -30,6 +33,5 @@ class ShotsController < ApplicationController
        end
        return paint_users
 	end
-
 
 end

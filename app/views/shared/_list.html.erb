@@ -1,8 +1,10 @@
 
 <ul>
  <div class = "project_box">
- 	<div class = "project_title"><%= link_to project.projectname , project_path(project)%></div>
- 	<div class = "links"><%= link_to "Edit" %> | <%= link_to "Delete" %></div>
+ 	<div class = "project_title"><%= link_to project.projectname , project_path(project)%>
+ 		<div class = "links"><%= link_to "edit" %> | <%= link_to "delete" %></div>
+ 	</div>
+ 	
      <div class = "detail_box">Sequences : <%= project.sequences.count %> | Artists : <%= 1%></div> 
      
  </div>

@@ -35,7 +35,7 @@
         <%= select_tag :paint_users, options_from_collection_for_select(User.paint_users, "id", "username"), :multiple => true %></div>
       <div>
         <%= f.label :Comp_Users %>
-        <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false %></div>
+        <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false, :include_blank => true %></div>
 
       <%= f.submit "Save" , class: "btn btn-large btn-primary"%> 
      <% end %>
