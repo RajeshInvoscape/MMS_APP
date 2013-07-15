@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
   def index
   	@projects = Project.all
     @project = Project.new
-    @user = User.new
   end
   def show 
     @sequence = Sequence.new

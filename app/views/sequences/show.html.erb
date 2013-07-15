@@ -4,7 +4,7 @@
 <br />
 <%= link_to "Create Shot", '#',:id => "new_shot" %>
 
-<div id = "create_shot" >
+<div id = "create_shot">
   <div class="row">
    <div class="span6 offset3">
     <%= form_for [@sequence, @shot], url: sequence_shots_path(@sequence), method: :post do |f| %>
@@ -13,23 +13,36 @@
 
       <%= f.hidden_field  :sequence_id, :value => @sequence.id %>
 
-      <div><%= f.label :Shot_Number %><br />
-      <%= f.text_field :number, :autofocus => true %></div>
+      <div><%= f.label :Shot_Number %> <%= f.text_field :number, :autofocus => true %></div>
 
-      <div><%= f.label :duration %><br />
+      <div><%= f.label :duration %>
       <%= f.text_field :duration %></div>
 
-      <div><%= f.label :work_description %><br />
+      <div><%= f.label :work_description %>
       <%= f.text_area :description, placeholder:"Work Description.......", :size => "30x10"%></div>
 
-      <div><%= f.label :delivery_date %><br />
+      <div><%= f.label :delivery_date %>
       <%= f.text_field :deliverydate %></div>
 
+      <h5> Artist expertise </h5>
 
-      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+      <div>
+       <%= f.label :Roto_Users %>
+       <%= select_tag :roto_users, options_from_collection_for_select(User.roto_users, "id", "username"), :multiple => true %></div>
+
+      <div>
+        <%= f.label :Paint_Users %>
+        <%= select_tag :paint_users, options_from_collection_for_select(User.paint_users, "id", "username"), :multiple => true %></div>
+      <div>
+        <%= f.label :Comp_Users %>
+        <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false %></div>
+
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%> 
      <% end %>
     </div>
    </div>
 </div>
+
+
 <h4> Shot List </h4>
 <%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>

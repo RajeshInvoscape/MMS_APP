@@ -1,6 +1,5 @@
 <h1>  Media Management System</h1>
-<%= link_to "Create New Project", '#',:id => "new_project"%> | 
-<%= link_to "Create New Artist", '#', :id => "new_artist"%> |
+<%= link_to "New Project", '#',class: "new_project"%> | 
 <%= link_to "Artist List", users_path%>
 
 <div id = "create_project" >
@@ -15,37 +14,6 @@
     </div>
    </div>
 </div>
-
-<%= render 'shared/list' %>
-
-<div id = "create_artist" >
-  <div class="row">
-   <div class="span6 offset3">
-    <%= form_for @user, url: users_path, method: :post do |f| %>
-
-      <%= render 'shared/error', object: f.object %>
-
-      <%= f.hidden_field  :admin, :value => false %>
-
-      <div><%= f.label :Artist_Name %><br />
-      <%= f.text_field :username, :autofocus => true %></div>
-
-      <div><%= f.label :Artist_expertise %><br />
-      <%= f.select :expertise, ["Roto","Paint","Comp"], :include_blank => true %></div>
-
-      <div><%= f.label :Mobile_no %><br />
-      <%= f.text_field :mobilenumber %></div>
-
-      <div><%= f.label :Email_ID %><br />
-      <%= f.text_field :email %></div>
-
-      <div><%= f.label :Artist_Password %><br />
-      <%= f.password_field :password %></div>
-
-
-      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
-     <% end %>
-    </div>
-   </div>
-</div>
+<h4> Project lists </h1>
+<%= render partial:'shared/list',collection: @projects ,as: :project %>
 

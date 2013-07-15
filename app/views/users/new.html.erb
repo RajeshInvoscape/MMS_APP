@@ -1,5 +1,36 @@
-<h3> Creating New  Project</h3>
 
 
+<h2>Creating New Artist </h2>
+<div id = "create_artist" >
+  <div class="row">
+   <div class="span6 offset3">
+    <%= form_for @user, url: users_path, method: :post do |f| %>
 
+      <%= render 'shared/error', object: f.object %>
+
+      <%= f.hidden_field  :admin, :value => false %>
+
+      <div><%= f.label :Artist_Name %><br />
+      <%= f.text_field :username, :autofocus => true %></div>
+
+      <div><%= f.label :Artist_expertise %><br />
+      <%= f.select :expertise, ["Roto","Paint","Comp"], :include_blank => true %></div>
+
+      <div><%= f.label :Mobile_no %><br />
+      <%= f.text_field :mobilenumber %></div>
+
+      <div><%= f.label :Email_ID %><br />
+      <%= f.text_field :email %></div>
+
+      <div><%= f.label :Artist_Password %><br />
+      <%= f.password_field :password %></div>
+       
+      <div><%= f.label :Password_Confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
+
+      <%= f.submit "Save" , class: "btn btn-large btn-primary"%>
+     <% end %>
+    </div>
+   </div>
+</div>
 

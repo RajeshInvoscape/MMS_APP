@@ -6,7 +6,7 @@
 <div id = "create_sequence" >
   <div class="row">
    <div class="span6 offset3">
-    <%= form_for [@project, @sequence], url: project_sequences_path(@project) do |f| %>
+    <%= form_for [@project, @sequence] do |f| %>
 
       <%= render 'shared/error', object: f.object %>
 
