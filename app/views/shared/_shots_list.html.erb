@@ -1,6 +1,3 @@
-
-<ul>
-<% if shot.new_record? != true %>
-  <div class = "shot_box"><%= link_to shot.number %> </div>
-<% end %>
-</ul>
+<td class = "shot_column"><% if shot.new_record? != true %>
+  <span class = "shot_box"><%= link_to shot.number %> </span>
+<% end %></td>

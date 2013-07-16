@@ -1,8 +1,7 @@
 <h1>  Media Management System</h1>
-<h4><%= @sequence.project.projectname %> |
-<%= @sequence.name %></h4>
-<br />
-<%= link_to "Create Shot", '#',:id => "new_shot" %>
+<h4><%=link_to  @sequence.project.projectname , projects_path %> >>
+<%=link_to @sequence.name , project_path(@sequence.project) %>
+<span class= "shot_link"><%= link_to "Create Shot", '#',:id => "new_shot" %></span></h4>
 
 <div id = "create_shot">
   <div class="row">
@@ -35,7 +34,7 @@
         <%= select_tag :paint_users, options_from_collection_for_select(User.paint_users, "id", "username"), :multiple => true %></div>
       <div>
         <%= f.label :Comp_Users %>
-        <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false, :include_blank => true %></div>
+        <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false, :prompt => "------- Select Comp User -------" %></div>
 
       <%= f.submit "Save" , class: "btn btn-large btn-primary"%> 
      <% end %>
@@ -45,4 +44,9 @@
 
 
 <h4> Shot List </h4>
-<%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>
+
+<table class ="shot_table">
+ <tr> 
+    <%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>
+</tr>
+ </table>

@@ -13,9 +13,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Successfully created artist!"
 			redirect_to projects_url
 		else
-			@projects = Project.all
-			@project = Project.new
-			render '/projects/index'
+			render '/users/new'
 		end
 	end
     def show

@@ -1,6 +1,8 @@
-
-<ul>
   <% if sequence.new_record? != true %>
-  <div class = "sequence_box"><%= link_to sequence.name , sequence_path(sequence) %></div>
+  <div class = "sequence_box">
+   <div class= "sequence_title" ><%= link_to sequence.name , sequence_path(sequence) %>
+   <div class = "links"><%= link_to "edit" %> | <%= link_to "delete" %></div></div>
+
+   <span class = "shots_count">Shots : <%= sequence.shots.count %></span>
+  </div>
   <% end %>
-</ul>

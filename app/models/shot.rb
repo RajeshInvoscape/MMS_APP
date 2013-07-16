@@ -23,5 +23,8 @@ class Shot < ActiveRecord::Base
   def comp_user_validating
     error.add(:user_id, "don't select more than one user") if self.comp_users.length == 1 
   end
-
+   
+  def shot_number
+    "SHT_%.3d" % number
+  end
 end

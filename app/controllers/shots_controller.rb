@@ -4,7 +4,7 @@ class ShotsController < ApplicationController
 		@shot = Shot.create!(params[:shot])
 		@shot.roto_users.push(push_roto_users(params[:roto_users])) if params[:roto_users]
 		@shot.paint_users.push(push_paint_users(params[:paint_users])) if params[:paint_users]
-		@shot.comp_users.push(User.find(params[:comp_users])) if  params[:comp_users]
+		@shot.comp_users.push(User.find(params[:comp_users])) unless params[:comp_users].blank?
 
 		if @shot.save
 			flash[:success] = "Successfully created shots!"
