@@ -1,3 +1,14 @@
-<td class = "shot_column"><% if shot.new_record? != true %>
-  <span class = "shot_box"><%= link_to shot.number %> </span>
-<% end %></td>
+<tr classs = "shot_details_row">
+<td>
+	<% if shot.new_record? != true %>
+      <span> <%= link_to shot.number %> </span>
+    <% end %>
+</td>
+<td >
+	<span > <%= link_to shot.assigned_user_names , '#',  :id => "assigned_user_tooltip"%></span>
+</td>
+<td> <span> <%= shot.status %> </span> </td>
+<td>
+	<span> <%=   time_ago_in_words(shot.deliverydate)  %></span>
+</td>
+</tr>

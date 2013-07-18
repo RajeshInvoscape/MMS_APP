@@ -1,7 +1,6 @@
-<h1>  Media Management System</h1>
 <h4><%=link_to  @sequence.project.projectname , projects_path %> >>
 <%=link_to @sequence.name , project_path(@sequence.project) %>
-<span class= "shot_link"><%= link_to "Create Shot", '#',:id => "new_shot" %></span></h4>
+<span class= "shot_link"><%= link_to "Create Shot", '#',:id => "new_shot" , class: "btn btn-small btn-info" %></span></h4>
 
 <div id = "create_shot">
   <div class="row">
@@ -23,6 +22,10 @@
       <div><%= f.label :delivery_date %>
       <%= f.text_field :deliverydate %></div>
 
+      <div><%= f.label :Artist_status %>
+      <%= f.select :status, ["At to start","In progress","Completed"], :include_blank => false %></div>
+
+
       <h5> Artist expertise </h5>
 
       <div>
@@ -35,7 +38,7 @@
       <div>
         <%= f.label :Comp_Users %>
         <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false, :prompt => "------- Select Comp User -------" %></div>
-
+      
       <%= f.submit "Save" , class: "btn btn-large btn-primary"%> 
      <% end %>
     </div>
@@ -43,10 +46,17 @@
 </div>
 
 
-<h4> Shot List </h4>
+<h4> Shots List
 
-<table class ="shot_table">
- <tr> 
+<%= render partial: 'shared/search' %> </h4>
+
+<table border = "1", cellpadding = "4", cellspacing = "6", class = "shot_table">
+  
+  <tr class = "header_row">
+    <th >Shot_Number</th>
+    <th >Artists</th>
+    <th >Status</th>
+    <th >Due Date</th>
+  </tr>
     <%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>
-</tr>
  </table>

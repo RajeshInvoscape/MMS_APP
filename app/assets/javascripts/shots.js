@@ -3,4 +3,14 @@ $(document).ready(function(){
    $('#new_shot').click(function(){
       $('#create_shot').toggle();
    });
+
+   $(function () {
+
+        
+
+           $('a[rel=tooltip]').tooltip();
+
+       
+    });
 });
+

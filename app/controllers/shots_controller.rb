@@ -1,7 +1,14 @@
 class ShotsController < ApplicationController
 	def create
 		@sequence = Sequence.find(params[:shot][:sequence_id])
-		@shot = Shot.create!(params[:shot])
+		begin
+		  @shot = Shot.create!(params[:shot])
+		rescue 
+			@shots = Shot.where(:sequence_id => @sequence.id)
+			@shot = Shot.new(params[:shot])
+			@shot.valid?
+			render "sequences/show" and return
+		end
 		@shot.roto_users.push(push_roto_users(params[:roto_users])) if params[:roto_users]
 		@shot.paint_users.push(push_paint_users(params[:paint_users])) if params[:paint_users]
 		@shot.comp_users.push(User.find(params[:comp_users])) unless params[:comp_users].blank?

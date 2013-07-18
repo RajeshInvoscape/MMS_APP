@@ -10,6 +10,9 @@ gem 'bootstrap-will_paginate'
 
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required

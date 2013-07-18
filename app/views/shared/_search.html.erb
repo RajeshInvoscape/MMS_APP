@@ -1,0 +1,6 @@
+<%= form_tag sequence_path(@sequence), :method => 'get' do %>
+  <span class = "shot_search">
+    <%= text_field_tag(:search, params[:search] , options = {:placeholder => "Search Shots", :style => "width : 200px" })%>   
+    <%= submit_tag "GO", :name => nil, class: "btn btn-info" %>
+  </span>
+<% end %>

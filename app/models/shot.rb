@@ -8,13 +8,14 @@ class Shot < ActiveRecord::Base
   has_many :paint_users, class_name: "User", conditions: "users.expertise = 'Paint'", through: :shot_users, source: :user
   has_many :comp_users, class_name: "User", conditions: "users.expertise = 'Comp'", through: :shot_users, source: :user
 
-  attr_accessible :deliverydate, :description, :duration, :number, :sequence_id
+  attr_accessible :deliverydate, :description, :duration, :number, :sequence_id, :status
 
   validates :number, presence: true
   validates :sequence_id, presence: true
   validates :description, presence: true, length: { maximum: 140}
   validates :deliverydate, presence: true
   validates :duration, presence: true
+  validates :status, presence: true
   validates_uniqueness_of :number, :scope => [:sequence_id]
 
 
@@ -23,8 +24,10 @@ class Shot < ActiveRecord::Base
   def comp_user_validating
     error.add(:user_id, "don't select more than one user") if self.comp_users.length == 1 
   end
-   
-  def shot_number
-    "SHT_%.3d" % number
+  def assigned_users
+    (self.roto_users + self.paint_users + self.comp_users).compact
+  end
+  def assigned_user_names
+    assigned_users.collect(&:username).join(", ")
   end
 end
