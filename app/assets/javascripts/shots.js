@@ -3,14 +3,12 @@ $(document).ready(function(){
    $('#new_shot').click(function(){
       $('#create_shot').toggle();
    });
-
-   $(function () {
-
-        
-
-           $('a[rel=tooltip]').tooltip();
-
-       
-    });
+   $('#assigned_user_tooltip').on('mouseover', function(){
+   	
+     	 $('#assigned_user_tooltip').tooltip('toggle');
+   });
+   $('#Shot_number').on('click', function(){
+   	alert(0);
+   });
 });
 

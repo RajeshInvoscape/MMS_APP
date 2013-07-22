@@ -30,4 +30,10 @@ class Shot < ActiveRecord::Base
   def assigned_user_names
     assigned_users.collect(&:username).join(", ")
   end
+
+  def self.search(search)
+    search_condition = "%" + search 
+    self.where('number LIKE ? ', search_condition)
+  end
+
 end

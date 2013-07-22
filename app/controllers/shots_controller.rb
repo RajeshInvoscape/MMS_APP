@@ -1,4 +1,5 @@
 class ShotsController < ApplicationController
+	before_filter :find_shots_from_params, :only => [:search]
 	def create
 		@sequence = Sequence.find(params[:shot][:sequence_id])
 		begin
@@ -20,25 +21,35 @@ class ShotsController < ApplicationController
 		   @shots = Shot.where(:sequence_id => @sequence.id)
 		   render "sequences/show"
 		end
-
 	end
+
+	def search
+		@shot = Shot.new
+        @shots = Shot.search(params[:search])
+        render "sequences/show"
+    end
 
 	private
 
 	def push_roto_users(roto_user_ids)
-	   roto_users = []
-       roto_user_ids.each do |id|   
-         roto_users.push(User.find(id)) unless id.blank?
-       end
-       return roto_users
-	end
+	    roto_users = []
+        roto_user_ids.each do |id|   
+          roto_users.push(User.find(id)) unless id.blank?
+        end
+        return roto_users
+	end 
 
 	def push_paint_users(paint_user_ids)
-	   paint_users = []
-       paint_user_ids.each do |id|   
-         paint_users.push(User.find(id)) unless id.blank?
-       end
-       return paint_users
+	    paint_users = []
+        paint_user_ids.each do |id|   
+          paint_users.push(User.find(id)) unless id.blank?
+        end
+        return paint_users
 	end
+    
+    private
 
+    def find_shots_from_params
+        @sequence = Sequence.find(params[:sequence_id])
+   end
 end

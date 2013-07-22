@@ -1,5 +1,7 @@
-<%= form_tag sequence_path(@sequence), :method => 'get' do %>
+<%= form_tag  :controller => 'shots', :action => 'search', method: 'get' do %>
   <span class = "shot_search">
+
+  	<%= hidden_field_tag(:sequence_id, @sequence.id) %>
     <%= text_field_tag(:search, params[:search] , options = {:placeholder => "Search Shots", :style => "width : 200px" })%>   
     <%= submit_tag "GO", :name => nil, class: "btn btn-info" %>
   </span>

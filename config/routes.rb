@@ -13,6 +13,11 @@ MMS::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   
+  resources :shots do 
+    collection do
+      post :search
+    end
+  end 
   # Sample of regular route:
   # match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

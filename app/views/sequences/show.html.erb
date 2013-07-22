@@ -1,6 +1,8 @@
+
 <h4><%=link_to  @sequence.project.projectname , projects_path %> >>
 <%=link_to @sequence.name , project_path(@sequence.project) %>
 <span class= "shot_link"><%= link_to "Create Shot", '#',:id => "new_shot" , class: "btn btn-small btn-info" %></span></h4>
+
 
 <div id = "create_shot">
   <div class="row">
@@ -9,28 +11,29 @@
 
       <%= render 'shared/error', object: f.object %>
 
-      <%= f.hidden_field  :sequence_id, :value => @sequence.id %>
+      <%= f.hidden_field :sequence_id, :value => @sequence.id %>
 
-      <div><%= f.label :Shot_Number %> <%= f.text_field :number, :autofocus => true %></div>
+      <div><%= f.label :Shot_Number %> 
+        <%= f.text_field :number, :autofocus => true %></div>
 
       <div><%= f.label :duration %>
-      <%= f.text_field :duration %></div>
+        <%= f.text_field :duration %></div>
 
       <div><%= f.label :work_description %>
-      <%= f.text_area :description, placeholder:"Work Description.......", :size => "30x10"%></div>
+        <%= f.text_area :description, placeholder:"Work Description.......", :size => "30x10"%></div>
 
       <div><%= f.label :delivery_date %>
-      <%= f.text_field :deliverydate %></div>
+        <%= f.text_field :deliverydate %></div>
 
       <div><%= f.label :Artist_status %>
-      <%= f.select :status, ["At to start","In progress","Completed"], :include_blank => false %></div>
+        <%= f.select :status, ["At to start","In progress","Completed"], :include_blank => false %></div>
 
 
       <h5> Artist expertise </h5>
 
       <div>
-       <%= f.label :Roto_Users %>
-       <%= select_tag :roto_users, options_from_collection_for_select(User.roto_users, "id", "username"), :multiple => true %></div>
+        <%= f.label :Roto_Users %>
+        <%= select_tag :roto_users, options_from_collection_for_select(User.roto_users, "id", "username"), :multiple => true %></div>
 
       <div>
         <%= f.label :Paint_Users %>
@@ -40,15 +43,15 @@
         <%= select_tag :comp_users, options_from_collection_for_select(User.comp_users, "id", "username"), :multiple => false, :prompt => "------- Select Comp User -------" %></div>
       
       <%= f.submit "Save" , class: "btn btn-large btn-primary"%> 
-     <% end %>
+    <% end %>
     </div>
-   </div>
+  </div>
 </div>
 
 
 <h4> Shots List
 
-<%= render partial: 'shared/search' %> </h4>
+<%= render partial: 'shared/search'%> </h4>
 
 <table border = "1", cellpadding = "4", cellspacing = "6", class = "shot_table">
   
@@ -60,3 +63,7 @@
   </tr>
     <%= render partial: 'shared/shots_list', collection: @shots ,as: :shot %>
  </table>
+
+<div class = "shot_show_page">
+  <%=   %>
+</div>  

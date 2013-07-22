@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   		flash[:success] = "Successfully created the project"
   		redirect_to '/projects'
   	else
-      @projects = Project.all
+      @projects = Project.paginate(page: params[:page], per_page: 5)
       @user =User.new
   		render 'index'
   	end
@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
     @sequence = Sequence.new
     @sequences = Sequence.where(:project_id => @project.id)
   end
+
+  
   private
 
   def find_project_from_params
