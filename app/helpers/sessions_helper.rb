@@ -15,7 +15,7 @@ module SessionsHelper
 
   def signed_in_user
     if signed_in?
-      redirect_to projects_path
+      redirect_to projects_url
     end
   end
 end

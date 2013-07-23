@@ -1,7 +1,7 @@
-<tr classs = "shot_details_row">
+<tr class = "shot_details_row">
 <td>
 	<% if shot.new_record? != true %>
-      <span id = "Shot_number"> <%= link_to shot.number, '#' %> </span>
+      <span><%= link_to shot.number, '#' , "data-id" => shot.id, id: "Shot_number"%> </span>
     <% end %>
 </td>
 <td >
@@ -9,6 +9,12 @@
 </td>
 <td> <span> <%= shot.status %> </span> </td>
 <td>
-	<span> <%= time_ago_in_words(shot.deliverydate) %></span>
+	<span> <%= shot.deliverydate.strftime("%d %b") %></span>
 </td>
+
+
+<%= render partial: 'shared/shot_details', locals: {shot: shot}%>
+
 </tr>
+
+
