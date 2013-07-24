@@ -9,8 +9,9 @@ class Shot < ActiveRecord::Base
   has_many :comp_users, class_name: "User", conditions: "users.expertise = 'Comp'", through: :shot_users, source: :user
 
   attr_accessible :deliverydate, :description, :duration, :number, :sequence_id, :status
-
-  validates :number, presence: true
+   
+  VALID_REGEX = /[a-zA-Z]{3}\_+[0-9]{3}/
+  validates :number, presence: true,format: { with: VALID_REGEX }
   validates :sequence_id, presence: true
   validates :description, presence: true, length: { maximum: 140}
   validates :deliverydate, presence: true
