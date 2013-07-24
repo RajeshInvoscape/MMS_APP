@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'simple_form'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate'
@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate'
 
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 
@@ -22,7 +23,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-  gem 'twitter-bootstrap-rails'
+
   gem 'uglifier', '>= 1.0.3'
 end
 

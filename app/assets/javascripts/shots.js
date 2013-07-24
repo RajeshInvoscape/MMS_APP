@@ -6,12 +6,12 @@ $(document).ready(function(){
    
    $('#assigned_user_tooltip').on('mouseover', function(){
    	
-     	 $('#assigned_user_tooltip').tooltip('toggle');
+     	 $('#assigned_user_tooltip').tooltip();
 
    });                                  
    $('.shot_details_row #Shot_number').on('click', function(){
        var retrieveId = $(this).data('id');
-      $("#shot_show_page_" + retrieveId ).modal('show');
+      $("#shot_show_page_" + retrieveId ).modal();
    });
 });
 
