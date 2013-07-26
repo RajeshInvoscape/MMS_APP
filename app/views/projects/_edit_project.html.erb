@@ -1,0 +1,7 @@
+<div id = "edit_project_<%= project.id %>", class = "edit_project", style = "display: none" >
+  <%= form_for project, :remote => true do |f| %>
+    <div><%= f.text_field :projectname, :autofocus => true %>
+      <%= f.submit "Update" , :disable_with => 'Please wait...', class: "btn btn-small btn-primary" %>
+    </div>
+  <% end %>
+</div>

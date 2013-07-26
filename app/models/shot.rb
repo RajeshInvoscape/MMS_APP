@@ -33,7 +33,7 @@ class Shot < ActiveRecord::Base
   end
 
   def self.search(search)
-    search_condition = "%" + search 
+    search_condition = "%" + search + "%"
     self.where('number LIKE ? ', search_condition)
   end
 
