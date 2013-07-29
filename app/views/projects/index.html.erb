@@ -1,15 +1,15 @@
 <div class = "project_header_view"> <%= link_to "New Project", '#',class: "new_project"%> | 
 <%= link_to "Artist List", users_path%></div>
 
-<div id = "create_project" >
+<div id = "create_project">
   <div class="row">
    <div class="span6 offset3">
     <%= form_for @project, url: projects_path do |f| %>
       <%= render 'shared/error', object: f.object %>
-      <div><%= f.label :project_Name %><br />
+      <div><%= f.label :project_Name %>
       <%= f.text_field :projectname, :autofocus => true %></div>
-      <%= f.submit "Save" , class: "btn btn-small btn-primary"%>
-     <% end %>
+      <%= f.submit "Save" , class: "btn btn-small btn-primary", id: "save_button"%>
+    <% end %>
     </div>
    </div>
 </div>

@@ -2,7 +2,7 @@ class Sequence < ActiveRecord::Base
   attr_accessible :name, :project_id
 
   belongs_to :project
-  has_many :shots
+  has_many :shots, dependent: :destroy
 
 
   validates :name, presence: true, length: { maximum: 25}

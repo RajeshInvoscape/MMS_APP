@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  has_many :sequences
+  has_many :sequences, dependent: :destroy
   
   attr_accessible :projectname
   
