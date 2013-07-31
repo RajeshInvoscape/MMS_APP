@@ -23,7 +23,7 @@
         <%= f.text_area :description, placeholder:"Work Description.......", :size => "30x10"%></div>
 
       <div><%= f.label :delivery_date %>
-        <%= f.text_field :deliverydate %></div>
+        <%= f.text_field :deliverydate, id: "shot_delevery_date"%></div>
 
       <div><%= f.label :Artist_status %>
         <%= f.select :status, ["At to start","In progress","Completed"], :include_blank => false %></div>

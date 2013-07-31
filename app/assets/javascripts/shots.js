@@ -13,5 +13,6 @@ $(document).ready(function(){
        var retrieveId = $(this).data('id');
       $("#shot_show_page_" + retrieveId ).modal();
    });
+   
 });
 
